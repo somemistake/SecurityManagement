@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Security Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $( function() {
+        $( "#datePicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    } );
+    </script>
+</head>
+<body>
+<div th:replace="~{fragment/navigation :: navigation}"></div>
+<div class="container my-2">
+    <h1>History Management System</h1>
+    <hr>
+    <h1>Create History</h1>
+    <form action="#" th:action="@{/history/createHistory}" th:object="${history}" method="post">
+        <div class="form-group col-md-4">
+            <select class="form-control" name="secid">
+                <option disabled selected>Choose Secid</option>
+                <option th:each="security : ${securities}"
+                        th:text="${security.secid}"
+                        th:value="${security.secid}"></option>
+            </select>
+        </div>
+        <input type="text" th:field="*{id}" placeholder="Enter History Id"
+               class="form-control mb-4 col-4"/>
+        <!--    <span style="color:red" th:text="${exception != null} ?-->
+        <!--               ${'Error: Audience number ' + exception.getAudience().getNumber() + ' already exists or input restrictions were violated'}"></span>-->
+        <input type="text" th:field="*{numtrades}" placeholder="Enter Numtrades"
+               class="form-control mb-4 col-4"/>
+        <input type="text" th:field="*{open}" placeholder="Enter Open"
+               class="form-control mb-4 col-4"/>
+        <div class="input-group date">
+            <input type="text"
+                   id="datePicker"
+                   name="tradedate"
+                   placeholder="Choose Tradedate">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-info col-2">Create History</button>
+    </form>
+    <hr>
+    <a th:href="@{/history}">Back to History List</a>
+</div>
+</body>
+</html>

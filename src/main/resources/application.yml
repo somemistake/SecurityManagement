@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    show-sql: false
+    hibernate:
+      format_sql: false
+      ddl-auto: none
+  batch:
+    initialize-schema: always
+  datasource:
+    url: jdbc:postgresql://localhost:5432/security_management
+    username: postgres
+    password: GhjdthrfCt,z

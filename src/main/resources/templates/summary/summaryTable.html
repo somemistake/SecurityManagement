@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Security Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="~{fragment/navigation :: navigation}"></div>
+<div class="container my-2">
+    <h1>Security Management System</h1>
+    <hr>
+    <h1>Summary List</h1>
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Secid</th>
+            <th>Regnumber</th>
+            <th>Name</th>
+            <th>Emitent Title</th>
+            <th>Tradedate</th>
+            <th>Numtrades</th>
+            <th>Open</th>
+            <th>Close</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="summary : ${summaries}">
+            <td th:text="${summary.getSecid()}"></td>
+            <td th:text="${summary.getRegnumber()}"></td>
+            <td th:text="${summary.getName()}"></td>
+            <td th:text="${summary.getEmitentTitle()}"></td>
+            <td th:text="${summary.getTradedate()}"></td>
+            <td th:text="${summary.getNumtrades()}"></td>
+            <td th:text="${summary.getOpen()}"></td>
+            <td th:text="${summary.getClose()}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+</div>
+</body>
+</html>

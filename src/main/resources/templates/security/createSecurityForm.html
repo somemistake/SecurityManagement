@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Security Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="~{fragment/navigation :: navigation}"></div>
+<div class="container my-2">
+    <h1>Security Management System</h1>
+    <hr>
+    <h1>Create Security</h1>
+    <form action="#" th:action="@{/security/createSecurity}" th:object="${security}" method="post">
+        <input type="text" th:field="*{id}" placeholder="Enter Security Id"
+               class="form-control mb-4 col-4"/>
+        <!--    <span style="color:red" th:text="${exception != null} ?-->
+        <!--               ${'Error: Audience number ' + exception.getAudience().getNumber() + ' already exists or input restrictions were violated'}"></span>-->
+        <input type="text" th:field="*{secid}" placeholder="Enter Security Secid"
+               class="form-control mb-4 col-4"/>
+        <!--    <span style="color:red" th:text="${exception != null} ?-->
+        <!--               ${'Error: Audience number ' + exception.getAudience().getNumber() + ' already exists or input restrictions were violated'}"></span>-->
+        <input type="text" th:field="*{regnumber}" placeholder="Enter Security Regnumber"
+               class="form-control mb-4 col-4"/>
+        <input type="text" th:field="*{name}" placeholder="Enter Security Name"
+               class="form-control mb-4 col-4"/>
+        <input type="text" th:field="*{emitentTitle}" placeholder="Enter Security Emitent Title"
+               class="form-control mb-4 col-4"/>
+        <br>
+        <button type="submit" class="btn btn-info col-2">Create Security</button>
+    </form>
+    <hr>
+    <a th:href="@{/security}">Back to Security List</a>
+</div>
+</body>
+</html>
